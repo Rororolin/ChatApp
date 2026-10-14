@@ -1,0 +1,57 @@
+<Window x:Class="ChatApp.ClientWpf.ConfirmDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Width="400"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Title="Подтверждение"
+        FontFamily="{StaticResource BodyFont}"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="ClearType"
+        UseLayoutRounding="True">
+  <Border CornerRadius="16" Background="{StaticResource BgWarm}"
+          BorderBrush="{StaticResource Hairline}" BorderThickness="1"
+          Effect="{StaticResource ShadowCard}" Margin="12">
+    <DockPanel>
+      <!-- Шапка -->
+      <Border DockPanel.Dock="Top" Background="{StaticResource ForestDeep}"
+              CornerRadius="15,15,0,0" Padding="18,12"
+              MouseLeftButtonDown="OnDragWindow">
+        <Grid>
+          <TextBlock x:Name="TbTitle" Text="Подтверждение"
+                     FontFamily="{StaticResource DisplayFont}" FontWeight="Bold"
+                     FontSize="13" Foreground="{StaticResource Cream}"
+                     VerticalAlignment="Center"/>
+          <Button Content="✕" Click="OnCancel"
+                  Background="Transparent" BorderThickness="0"
+                  Foreground="#AAFEFAE0" FontSize="14" Cursor="Hand"
+                  HorizontalAlignment="Right" VerticalAlignment="Center"
+                  Padding="6,2"/>
+        </Grid>
+      </Border>
+
+      <!-- Контент -->
+      <StackPanel Margin="28,22,28,26">
+        <TextBlock x:Name="TbHeader"
+                   FontFamily="{StaticResource DisplayFont}" FontWeight="Bold"
+                   FontSize="18" Foreground="{StaticResource Forest}"
+                   TextWrapping="Wrap"/>
+        <TextBlock x:Name="TbBody"
+                   Foreground="{StaticResource InkSoft}" FontSize="13"
+                   TextWrapping="Wrap" Margin="0,8,0,0"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,22,0,0">
+          <Button Content="Отмена" Style="{StaticResource PillowGhost}" Height="44" Padding="22,0"
+                  IsCancel="True" Margin="0,0,8,0" Click="OnCancel"/>
+          <Button x:Name="BtnConfirm" Height="44" Padding="24,0"
+                  Style="{StaticResource PillowDanger}"
+                  IsDefault="True" Click="OnConfirm"/>
+        </StackPanel>
+      </StackPanel>
+    </DockPanel>
+  </Border>
+</Window>

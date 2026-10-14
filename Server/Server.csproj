@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AssemblyName>ChatApp.Server</AssemblyName>
+    <RootNamespace>ChatApp.Server</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../Shared/ChatPacket.cs" />
+    <Compile Include="../Shared/CryptoHelper.cs" />
+    <Compile Include="../Shared/RoomInfo.cs" />
+    <Compile Include="../Shared/UsernameRules.cs" />
+    <Compile Include="../Shared/PasswordRules.cs" />
+    <Compile Include="../Shared/ChatHistoryJson.cs" />
+  </ItemGroup>
+</Project>

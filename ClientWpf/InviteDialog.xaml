@@ -1,0 +1,30 @@
+<Window x:Class="ChatApp.ClientWpf.InviteDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Пригласить в группу"
+        Width="460" Height="295"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStyle="ToolWindow"
+        Background="{StaticResource BgWarm}"
+        FontFamily="{StaticResource BodyFont}"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="ClearType"
+        UseLayoutRounding="True">
+  <StackPanel Margin="24,22,24,22">
+    <TextBlock Text="Пригласить в группу"
+               FontFamily="{StaticResource DisplayFont}" FontWeight="Bold"
+               FontSize="20" Foreground="{StaticResource Forest}"/>
+    <TextBlock Text="Введите @username — пользователь получит приглашение."
+               Foreground="{StaticResource InkSoft}" FontSize="12.5"
+               Margin="0,6,0,12"/>
+    <TextBox x:Name="Tb" Style="{StaticResource CreamTextBox}" Tag="@alice"/>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,22,0,0">
+      <Button Content="Отмена" Style="{StaticResource PillowGhost}" Height="44" Padding="22,0"
+              IsCancel="True" Margin="0,0,8,0"/>
+      <Button Content="Пригласить" Style="{StaticResource PillowPrimary}" Height="44" Padding="24,0"
+              IsDefault="True" Click="OnOk"/>
+    </StackPanel>
+  </StackPanel>
+</Window>

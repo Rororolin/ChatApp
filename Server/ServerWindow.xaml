@@ -1,0 +1,116 @@
+<Window x:Class="ChatApp.Server.ServerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sprout — Сервер"
+        Width="760" Height="520"
+        MinWidth="500" MinHeight="340"
+        WindowStartupLocation="CenterScreen">
+
+  <Window.Background>
+    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+      <GradientStop Offset="0"   Color="#FF1F2D20"/>
+      <GradientStop Offset="0.6" Color="#FF0E1A0E"/>
+      <GradientStop Offset="1"   Color="#FF050A05"/>
+    </LinearGradientBrush>
+  </Window.Background>
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="56"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="48"/>
+    </Grid.RowDefinitions>
+
+    <!-- Header -->
+    <Border Grid.Row="0" Background="#22FEFAE0" BorderBrush="#220A400C" BorderThickness="0,0,0,1">
+      <Grid Margin="20,0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+          <TextBlock Text="Sprout"
+                     FontFamily="Segoe UI Variable Display, Segoe UI Semibold, Segoe UI"
+                     FontSize="20" FontWeight="SemiBold"
+                     Foreground="#FF9CC97A" VerticalAlignment="Center"/>
+          <TextBlock Text=" · Сервер"
+                     FontFamily="Segoe UI Variable Text, Segoe UI"
+                     FontSize="14" Foreground="#88FEFAE0" VerticalAlignment="Center" Margin="2,2,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+          <TextBlock x:Name="PortLabel"
+                     FontFamily="Consolas, Cascadia Mono, Menlo"
+                     FontSize="12" Foreground="#AAFEFAE0" VerticalAlignment="Center"/>
+          <TextBlock x:Name="ConnLabel"
+                     FontFamily="Segoe UI Variable Text, Segoe UI"
+                     FontSize="12" Foreground="#AAFEFAE0" VerticalAlignment="Center"
+                     Margin="16,0,0,0"/>
+        </StackPanel>
+      </Grid>
+    </Border>
+
+    <!-- Log area -->
+    <ScrollViewer x:Name="LogScroll" Grid.Row="1"
+                  Margin="12,10,12,0"
+                  VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Disabled"
+                  Background="Transparent">
+      <TextBlock x:Name="LogBlock"
+                 FontFamily="Consolas, Cascadia Mono, Menlo"
+                 FontSize="12"
+                 Foreground="#CC9CC97A"
+                 TextWrapping="Wrap"
+                 Padding="4"/>
+    </ScrollViewer>
+
+    <!-- Footer -->
+    <Border Grid.Row="2" Background="#14FEFAE0" BorderBrush="#220A400C" BorderThickness="0,1,0,0">
+      <Grid Margin="16,0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="StatusLabel"
+                   VerticalAlignment="Center"
+                   FontFamily="Segoe UI Variable Text, Segoe UI"
+                   FontSize="12" Foreground="#885BAA45"
+                   Text="Запуск…"/>
+
+        <StackPanel Grid.Column="1" Orientation="Horizontal">
+          <Button x:Name="BtnStart" Grid.Column="1"
+                  Content="Запустить"
+                  Click="OnStart"
+                  Height="30" Padding="16,0"
+                  Background="#FF5BAA45" Foreground="#FFFEFAE0"
+                  FontFamily="Segoe UI Variable Text, Segoe UI"
+                  FontSize="12" FontWeight="SemiBold"
+                  BorderThickness="0" Cursor="Hand"
+                  Visibility="Collapsed" Margin="0,0,8,0">
+            <Button.Resources>
+              <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="6"/>
+              </Style>
+            </Button.Resources>
+          </Button>
+          <Button x:Name="BtnStop"
+                  Content="Остановить"
+                  Click="OnStop"
+                  Height="30" Padding="16,0"
+                  Background="#FFB43A2E" Foreground="#FFFEFAE0"
+                  FontFamily="Segoe UI Variable Text, Segoe UI"
+                  FontSize="12" FontWeight="SemiBold"
+                  BorderThickness="0" Cursor="Hand">
+            <Button.Resources>
+              <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="6"/>
+              </Style>
+            </Button.Resources>
+          </Button>
+        </StackPanel>
+      </Grid>
+    </Border>
+  </Grid>
+</Window>
